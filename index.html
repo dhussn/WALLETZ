@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WalletScan</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div id="welcome-screen" class="screen">
+    <div class="banner">WalletScan</div>
+    <button class="button" onclick="navigateTo('login-screen')">Login</button>
+    <button class="button" onclick="navigateTo('signup-screen')">Sign Up</button>
+  </div>
+
+  <!-- Login Screen -->
+  <div id="login-screen" class="screen hidden">
+    <div class="banner">Login</div>
+    <input class="input-box" type="text" id="login-email" placeholder="Enter your email">
+    <input class="input-box" type="password" id="login-password" placeholder="Enter your password">
+    <button class="button" onclick="login()">Login</button>
+    <button class="button back" onclick="navigateTo('welcome-screen')">Back</button>
+  </div>
+
+  <!-- Sign Up Screen -->
+  <div id="signup-screen" class="screen hidden">
+    <div class="banner">Sign Up</div>
+    <input class="input-box" type="text" id="signup-name" placeholder="Enter your name">
+    <input class="input-box" type="email" id="signup-email" placeholder="Enter your email">
+    <input class="input-box" type="password" id="signup-password" placeholder="Enter your password">
+    <input class="input-box" type="password" id="signup-confirm-password" placeholder="Confirm your password">
+    <button class="button" onclick="signup()">Sign Up</button>
+    <button class="button back" onclick="navigateTo('welcome-screen')">Back</button>
+  </div>
+
+  <!-- Scan Screen -->
+  <div id="scan-screen" class="screen hidden">
+    <div class="banner">Scan Wallet</div>
+    <input class="input-box" type="text" id="wallet-address" placeholder="Enter Wallet Address">
+    <button class="button" onclick="analyzeWallet()">Analyze</button>
+    <button class="button back" onclick="navigateTo('welcome-screen')">Logout</button>
+  </div>
+
+  <!-- Analysis Screen -->
+  <div id="analysis-screen" class="screen hidden">
+    <div class="banner">Analysis</div>
+    <div id="analysis-results" class="results-box">Analysis will appear here.</div>
+    <button class="button" onclick="navigateTo('email-screen')">Email the Analysis</button>
+    <button class="button back" onclick="navigateTo('scan-screen')">Back</button>
+  </div>
+
+  <!-- Email Screen -->
+  <div id="email-screen" class="screen hidden">
+    <div class="banner">Email Analysis</div>
+    <input class="input-box" type="email" id="recipient-email" placeholder="Recipient's Email">
+    <button class="button" onclick="sendEmail()">Send</button>
+    <button class="button back" onclick="navigateTo('analysis-screen')">Back</button>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
